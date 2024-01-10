@@ -35,25 +35,30 @@ limitations under the License.
 
 > Create an array containing pseudorandom numbers drawn from a [chi][@stdlib/random/base/chi] distribution.
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/random-array-chi
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm` branch][esm-url].
+-   If you are using Deno, visit the [`deno` branch][deno-url].
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd` branch][umd-url].
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
 ```javascript
-import chi from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-array-chi@esm/index.mjs';
-```
-The previous example will load the latest bundled code from the esm branch. Alternatively, you may load a specific version by loading the file from one of the [tagged bundles](https://github.com/stdlib-js/random-array-chi/tags). For example,
-
-```javascript
-import chi from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-array-chi@v0.1.0-esm/index.mjs';
-```
-
-You can also import the following named exports from the package:
-
-```javascript
-import { factory } from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-array-chi@esm/index.mjs';
+var chi = require( '@stdlib/random-array-chi' );
 ```
 
 #### chi( len, k\[, options] )
@@ -91,7 +96,7 @@ var out = chi( 10, 2.0, opts );
 Fills an array with pseudorandom numbers drawn from a [chi][@stdlib/random/base/chi] distribution.
 
 ```javascript
-import zeros from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-zeros@esm/index.mjs';
+var zeros = require( '@stdlib/array-zeros' );
 
 var x = zeros( 10, 'float64' );
 // returns <Float64Array>
@@ -157,7 +162,7 @@ The function accepts the following `options`:
 To use a custom PRNG as the underlying source of uniformly distributed pseudorandom numbers, set the `prng` option.
 
 ```javascript
-import minstd from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-minstd@esm/index.mjs';
+var minstd = require( '@stdlib/random-base-minstd' );
 
 var opts = {
     'prng': minstd.normalized
@@ -220,7 +225,7 @@ var seed = chi.seed;
 If the `factory` method is provided a PRNG for uniformly distributed numbers, the associated property value on the returned function is `null`.
 
 ```javascript
-var minstd = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-minstd-shuffle' ).normalized;
+var minstd = require( '@stdlib/random-base-minstd-shuffle' ).normalized;
 
 var random = chi.factory( 2.0, {
     'prng': minstd
@@ -242,7 +247,7 @@ var len = chi.seedLength;
 If the `factory` method is provided a PRNG for uniformly distributed numbers, the associated property value on the returned function is `null`.
 
 ```javascript
-var minstd = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-minstd-shuffle' ).normalized;
+var minstd = require( '@stdlib/random-base-minstd-shuffle' ).normalized;
 
 var random = chi.factory( 2.0, {
     'prng': minstd
@@ -264,7 +269,7 @@ var state = chi.state;
 If the `factory` method is provided a PRNG for uniformly distributed numbers, the associated property value on the returned function is `null`.
 
 ```javascript
-var minstd = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-minstd-shuffle' ).normalized;
+var minstd = require( '@stdlib/random-base-minstd-shuffle' ).normalized;
 
 var random = chi.factory( 2.0, {
     'prng': minstd
@@ -286,7 +291,7 @@ var len = chi.stateLength;
 If the `factory` method is provided a PRNG for uniformly distributed numbers, the associated property value on the returned function is `null`.
 
 ```javascript
-var minstd = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-minstd-shuffle' ).normalized;
+var minstd = require( '@stdlib/random-base-minstd-shuffle' ).normalized;
 
 var random = chi.factory( 2.0, {
     'prng': minstd
@@ -308,7 +313,7 @@ var sz = chi.byteLength;
 If the `factory` method is provided a PRNG for uniformly distributed numbers, the associated property value on the returned function is `null`.
 
 ```javascript
-var minstd = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-minstd-shuffle' ).normalized;
+var minstd = require( '@stdlib/random-base-minstd-shuffle' ).normalized;
 
 var random = chi.factory( 2.0, {
     'prng': minstd
@@ -339,14 +344,9 @@ var sz = random.byteLength;
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="module">
-
-import logEach from 'https://cdn.jsdelivr.net/gh/stdlib-js/console-log-each@esm/index.mjs';
-import chi from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-array-chi@esm/index.mjs';
+```javascript
+var logEach = require( '@stdlib/console-log-each' );
+var chi = require( '@stdlib/random-array-chi' );
 
 // Create a function for generating random arrays originating from the same state:
 var random = chi.factory( 2.0, {
@@ -373,10 +373,6 @@ var x4 = random( 15 );
 
 // Print the contents:
 logEach( '%f', x4 );
-
-</script>
-</body>
-</html>
 ```
 
 </section>
@@ -386,6 +382,12 @@ logEach( '%f', x4 );
 <!-- Section for related `stdlib` packages. Do not manually edit this section, as it is automatically populated. -->
 
 <section class="related">
+
+* * *
+
+## See Also
+
+-   <span class="package-name">[`@stdlib/random-base/chi`][@stdlib/random/base/chi]</span><span class="delimiter">: </span><span class="description">Chi distributed pseudorandom numbers.</span>
 
 </section>
 
@@ -400,7 +402,7 @@ logEach( '%f', x4 );
 
 ## Notice
 
-This package is part of [stdlib][stdlib], a standard library with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
+This package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
 
 For more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].
 
@@ -430,8 +432,8 @@ Copyright &copy; 2016-2024. The Stdlib [Authors][stdlib-authors].
 [npm-image]: http://img.shields.io/npm/v/@stdlib/random-array-chi.svg
 [npm-url]: https://npmjs.org/package/@stdlib/random-array-chi
 
-[test-image]: https://github.com/stdlib-js/random-array-chi/actions/workflows/test.yml/badge.svg?branch=v0.1.0
-[test-url]: https://github.com/stdlib-js/random-array-chi/actions/workflows/test.yml?query=branch:v0.1.0
+[test-image]: https://github.com/stdlib-js/random-array-chi/actions/workflows/test.yml/badge.svg?branch=main
+[test-url]: https://github.com/stdlib-js/random-array-chi/actions/workflows/test.yml?query=branch:main
 
 [coverage-image]: https://img.shields.io/codecov/c/github/stdlib-js/random-array-chi/main.svg
 [coverage-url]: https://codecov.io/github/stdlib-js/random-array-chi?branch=main
@@ -460,13 +462,13 @@ Copyright &copy; 2016-2024. The Stdlib [Authors][stdlib-authors].
 
 [stdlib-license]: https://raw.githubusercontent.com/stdlib-js/random-array-chi/main/LICENSE
 
-[@stdlib/random/base/chi]: https://github.com/stdlib-js/random-base-chi/tree/esm
+[@stdlib/random/base/chi]: https://github.com/stdlib-js/random-base-chi
 
-[@stdlib/array/typed-real-float-dtypes]: https://github.com/stdlib-js/array-typed-real-float-dtypes/tree/esm
+[@stdlib/array/typed-real-float-dtypes]: https://github.com/stdlib-js/array-typed-real-float-dtypes
 
-[@stdlib/array/uint32]: https://github.com/stdlib-js/array-uint32/tree/esm
+[@stdlib/array/uint32]: https://github.com/stdlib-js/array-uint32
 
-[@stdlib/array/float64]: https://github.com/stdlib-js/array-float64/tree/esm
+[@stdlib/array/float64]: https://github.com/stdlib-js/array-float64
 
 </section>
 
